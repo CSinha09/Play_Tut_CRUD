@@ -1,0 +1,21 @@
+@(noteForm : Form[Note])
+@import helper._
+
+<html>
+    <head>
+        <title>
+        Create Note
+        </title>
+    </head>
+    <body>
+        <h1>
+            Create a new note
+        </h1>
+        @helper.form(action = routes.NotesController.save()){
+            @helper.inputText(noteForm("id"))
+            @helper.inputText(noteForm("title"))
+            @helper.inputText(noteForm("content"))
+            <input type="submit" value="Create Note">
+        }
+    </body>
+</html>

@@ -12,6 +12,8 @@ public class Note {
     public Integer id;
     public String title;
     public String content;
+
+    public Note(){}
     public Note(Integer id, String title, String content){
         this.id=id;
         this.title=title;
@@ -26,6 +28,7 @@ public class Note {
         notes.add(new Note(2, "C++", "Pointers"));
         notes.add(new Note(3, "Python", "NumPy"));
         notes.add(new Note(4, "Scala", "Apache"));
+        notes.add(new Note(12, "Abcd", "Not Enough"));
         notes.add(new Note(5, "NOTA", "Suggestion is required"));
     }
 
@@ -48,4 +51,11 @@ public class Note {
         return notes.remove(note);
     }
 
+    public static void main(String[] args){
+        for(Note x: notes){
+            System.out.println(x.id);
+        }
+    }
+
 }
+

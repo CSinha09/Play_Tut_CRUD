@@ -7,7 +7,9 @@ GET     /                           controllers.NotesController.home()
 
 GET     /view/:id                   controllers.NotesController.view(id: Integer)
 
-POST    /create                     controllers.NotesController.create()
+GET     /notes/create                      controllers.NotesController.create()
+
+POST    /notes/create                     controllers.NotesController.save()
 
 PATCH   /update/:id                 controllers.NotesController.update(id: Integer)
 

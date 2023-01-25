@@ -14,7 +14,8 @@ public class Note {
     public String content;
 
     public Note(){}
-    public Note(String id, String title, String content){
+
+    public Note(Integer id, String title, String content){
         this.id=id;
         this.title=title;
         this.content=content;

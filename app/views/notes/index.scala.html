@@ -1,0 +1,18 @@
+@(notes : Set[Note])
+
+<html>
+    <head>
+        <title>
+            All Notes
+        </title>
+    </head>
+    <body>
+        <h1>
+            All notes are displayed here
+        </h1>
+        @for(note <- notes){
+            <a href="#"> @note.title </a>
+            <h3> @note.content </h3>
+        }
+    </body>
+</html>

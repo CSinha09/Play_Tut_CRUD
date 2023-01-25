@@ -36,7 +36,6 @@ public class NotesController extends Controller {
     public Result save(){
         Form<Note> noteForm = formFactory.form(Note.class).withDirectFieldAccess(true).bindFromRequest();
         Note note = noteForm.get();
-        System.out.println(note.id);
         Note.addNewNote(note);
         return redirect(routes.NotesController.home());
     }

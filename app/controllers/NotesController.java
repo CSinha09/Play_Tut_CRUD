@@ -33,13 +33,20 @@ public class NotesController extends Controller {
         return ok(views.html.notes.create.render(noteForm));
     }
 
+    public Result save(){
+        Form<Note> noteForm = formFactory.form(Note.class).withDirectFieldAccess(true).bindFromRequest();
+        Note note = noteForm.get();
+        Note.addNewNote(note);
+        return redirect(routes.NotesController.home());
+    }
+
     // To delete a specific note
-    public Result remove(Integer id){
+    public Result remove(String id){
         return TODO();
     }
 
     // To update a specific note
-    public Result update(Integer id){
+    public Result update(String id){
         return TODO();
     }
 

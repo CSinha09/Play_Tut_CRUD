@@ -9,11 +9,12 @@ import java.util.Set;
 
 public class Note {
 
-    public Integer id;
+    public String id;
     public String title;
     public String content;
 
     public Note(){}
+
     public Note(Integer id, String title, String content){
         this.id=id;
         this.title=title;
@@ -24,19 +25,19 @@ public class Note {
 
     static {
         notes=new HashSet<>();
-        notes.add(new Note(1, "Java", "OOP"));
-        notes.add(new Note(2, "C++", "Pointers"));
-        notes.add(new Note(3, "Python", "NumPy"));
-        notes.add(new Note(4, "Scala", "Apache"));
-        notes.add(new Note(12, "Abcd", "Not Enough"));
-        notes.add(new Note(5, "NOTA", "Suggestion is required"));
+        notes.add(new Note("1", "Java", "OOP"));
+        notes.add(new Note("2", "C++", "Pointers"));
+        notes.add(new Note("3", "Python", "NumPy"));
+        notes.add(new Note("4", "Scala", "Apache"));
+        notes.add(new Note("12", "Abcd", "Not Enough"));
+        notes.add(new Note("5", "NOTA", "Suggestion is required"));
     }
 
     public static Set<Note> allNotes(){
         return notes;
     }
 
-    public static Note findById(Integer id){
+    public static Note findById(String id){
         for(Note note: notes){
             if(note.id == id) return note;
         }

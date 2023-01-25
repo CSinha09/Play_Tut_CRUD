@@ -11,9 +11,9 @@ GET     /notes/create                      controllers.NotesController.create()
 
 POST    /notes/create                     controllers.NotesController.save()
 
-PATCH   /update/:id                 controllers.NotesController.update(id: Integer)
+PATCH   /update/:id                 controllers.NotesController.update(id: String)
 
-DELETE  /remove/:id                 controllers.NotesController.remove(id: Integer)
+DELETE  /remove/:id                 controllers.NotesController.remove(id: String)
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)

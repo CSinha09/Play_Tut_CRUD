@@ -1,14 +1,20 @@
 package controllers;
 
 import models.Note;
+import play.data.Form;
+import play.data.FormFactory;
 import play.mvc.*;
 import views.html.index;
 import views.html.notes.*;
 
+import javax.inject.Inject;
 import java.util.HashMap;
 import java.util.Set;
 
 public class NotesController extends Controller {
+
+    @Inject
+    FormFactory formFactory;
 
     // To GET all the available notes
     public Result home() {
@@ -23,7 +29,8 @@ public class NotesController extends Controller {
 
     // To create a note
     public Result create(){
-        return TODO();
+        Form<Note> noteForm = formFactory.form(Note.class);
+        return ok(views.html.notes.create.render(noteForm));
     }
 
     // To delete a specific note
@@ -34,6 +41,14 @@ public class NotesController extends Controller {
     // To update a specific note
     public Result update(Integer id){
         return TODO();
+    }
+
+    public Result save(){
+        Form<Note> noteForm = formFactory.form(Note.class).bindFromRequest();
+        Note note = noteForm.get();
+        System.out.println("note.content");
+        Note.addNewNote(note);
+        return redirect(routes.NotesController.home());
     }
 
 }
